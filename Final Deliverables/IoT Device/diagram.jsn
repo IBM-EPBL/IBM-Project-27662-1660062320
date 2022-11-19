@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "RAKESH K M",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -41.14, "left": -162.19, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -58.23,
+      "left": 196.16,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -99.56,
+      "left": 14.83,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -50.9,
+      "left": 84.83,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 151.77,
+      "left": 18.17,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "bz1:1", "black", [ "h0" ] ],
+    [ "bz1:2", "esp:D19", "green", [ "v0" ] ],
+    [ "esp:D5", "led1:A", "green", [ "h0" ] ],
+    [ "r1:1", "led1:C", "green", [ "h-49.33", "v-15.66" ] ],
+    [ "r1:2", "esp:GND.1", "black", [ "v0" ] ],
+    [ "lcd1:SDA", "esp:D21", "gold", [ "h-58.67", "v-183.94" ] ],
+    [ "esp:D22", "lcd1:SCL", "yellow", [ "h66.87", "v223.5" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-193.86", "v-77.1" ] ],
+    [ "esp:VIN", "lcd1:VCC", "red", [ "h-6.11", "v74.72" ] ]
+  ]
+}
